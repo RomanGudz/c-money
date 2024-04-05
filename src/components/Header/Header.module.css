@@ -1,0 +1,7 @@
+.header {
+  background-color: var(--header);
+  padding: 20px 0;
+}
+.header_logo {
+  margin: 0 0 0 10px;
+}
