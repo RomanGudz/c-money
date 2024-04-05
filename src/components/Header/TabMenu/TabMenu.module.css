@@ -1,0 +1,38 @@
+.active {
+  color: #c6b6d7;
+  color: var(--text);
+}
+
+.header_nav {
+  gap: 30px;
+}
+.header_exit,
+.header_nav {
+  display: flex;
+  font-family: Nunito;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0 0 10 0px;
+}
+.header_exit {
+  align-items: center;
+  background-color: initial;
+  border: none;
+  color: #fff;
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .header_nav {
+    font-size: 12px;
+    gap: 15px;
+  }
+  .header_exit {
+    font-size: 12px;
+  }
+
+  .header_arrow {
+    max-width: 10px;
+  }
+}

@@ -5,3 +5,9 @@
 .header_logo {
   margin: 0 0 0 10px;
 }
+
+.header_container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

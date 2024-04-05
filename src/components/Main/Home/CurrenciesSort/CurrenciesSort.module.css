@@ -1,0 +1,23 @@
+.currencies_sort {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+}
+
+.currencies_sort__title {
+  color: var(--text);
+  font-family: Nunito;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.currencies_select {
+  background-color: initial;
+  border: none;
+  color: #fff;
+  outline: transparent;
+}
+.currencies_select option {
+  background-color: var(--bgcolor);
+}
