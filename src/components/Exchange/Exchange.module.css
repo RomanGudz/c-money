@@ -1,0 +1,112 @@
+.exchange_container {
+  padding-top: 60px;
+}
+
+.Exchange_loader__container__AiT9c {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.exchange_title {
+  font-family: Comfortaa;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 29px;
+  margin-bottom: 40px;
+}
+
+.exchange_text {
+  color: var(--text);
+  display: inline-block;
+  font-family: Nunito;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 30px;
+  width: 70px;
+}
+.exchange_text:first-of-type {
+  margin-bottom: 15px;
+}
+
+.exchange_text_white {
+  font-family: Nunito;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.exchange_balance:after {
+  content: " ₽";
+}
+
+.exchange_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exchange_rates__wrapper {
+  background: var(--header);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  overflow: hidden;
+  padding: 15px 60px 25px 20px;
+}
+
+.exchange_rates__title {
+  font-family: Nunito;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.exchange_tr_e {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 7px;
+}
+
+.exchange_td__first {
+  font-family: Nunito;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  vertical-align: bottom;
+}
+
+.exchange_td__second {
+  border-bottom: 1px solid var(--bgcolor);
+  width: 100%;
+}
+
+.exchange_td__third {
+  align-items: center;
+  display: flex;
+  font-family: Nunito;
+  font-size: 15px;
+  font-weight: 700;
+  gap: 5px;
+  justify-content: flex-end;
+  line-height: 100%;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .exchange_wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .exchange_rates__wrapper {
+    height: 330px;
+    padding-right: 20px;
+  }
+
+  .exchange_rates__title {
+    text-align: center;
+  }
+}

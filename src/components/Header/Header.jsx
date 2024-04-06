@@ -7,15 +7,16 @@ import TabMenu from './TabMenu';
 export const Header = () => {
   console.log();
   return (
-    <Layout>
-      <header
-        className={style.header}>
+    <header
+      className={style.header}>
+      <Layout>
         <div className={style.header_container}>
           <a href='/auth'>
             <Logo className={style.header_logo} />
           </a>
           <TabMenu />
         </div>
-      </header>
-    </Layout>);
+      </Layout>
+    </header>
+  );
 };

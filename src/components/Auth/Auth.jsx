@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Auth.module.css';
+import classNames from 'classnames';
 
 export const Auth = () => {
   console.log();
@@ -25,7 +26,8 @@ export const Auth = () => {
               autoComplete="current-password"
             />
           </div>
-          <button className={style.form__button} type="submit">Войти</button>
+          <button className={classNames(style.form__button, style.button)}
+            type="submit">Войти</button>
         </form>
       </div>
     </div>
