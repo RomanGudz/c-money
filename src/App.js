@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
+// в стиля есть visually-hidden  для скрытия контента
+
 const App = () => {
   console.log();
   return (

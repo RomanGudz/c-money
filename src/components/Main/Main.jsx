@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Auth from '../Auth';
 import NotPage from '../NotPage';
 import Home from '../Main/Home';
+import Exchange from '../Exchange';
 // import style from './Main.module.css';
 
 export const Main = () => {
@@ -12,5 +13,6 @@ export const Main = () => {
       <Route path='/auth' element={<Auth />} />
       <Route path='*' element={<NotPage />} />
       <Route path='/currencies' element={<Home />} />
+      <Route path='/exchange' element={<Exchange />} />
     </Routes>);
 };
