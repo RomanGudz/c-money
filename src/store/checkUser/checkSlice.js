@@ -6,19 +6,19 @@ const initialState = {
   error: ''
 };
 
-const authSlice = createSlice({
-  name: 'auth',
+const checkSlice = createSlice({
+  name: 'check',
   initialState,
   reducers: {
-    authRequest: (state) => {
+    checkRequest: (state) => {
       state.loading = true;
       state.error = '';
     },
-    authRequestSucces: (state, action) => {
+    checkRequestSucces: (state, action) => {
       state.loading = false;
       state.data = action.payload;
     },
-    authRequestError: (state, action) => {
+    checkRequestError: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     }
@@ -26,9 +26,9 @@ const authSlice = createSlice({
 });
 
 export const {
-  authRequest,
-  authRequestSucces,
-  authRequestError,
-} = authSlice.actions;
+  checkRequest,
+  checkRequestSucces,
+  checkRequestError,
+} = checkSlice.actions;
 
-export default authSlice.reducer;
+export default checkSlice.reducer;

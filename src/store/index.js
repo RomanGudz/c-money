@@ -3,6 +3,7 @@ import createSagaMiddleware from '@redux-saga/core';
 import rootSaga from './saga';
 import authSlice from './auth/authSlice';
 import tokenSlice from './token/tokenSlice';
+import checkSlice from './checkUser/checkSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -10,7 +11,7 @@ export const store = configureStore({
   reducer: {
     token: tokenSlice,
     auth: authSlice,
-    // postData: postDataReducer,
+    check: checkSlice,
     // comments: commentsReducer,
     // search: searchReducer,
   },

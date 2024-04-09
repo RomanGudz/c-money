@@ -57,7 +57,7 @@
   padding: 20px;
 }
 
-.account_button{
+.account_button {
   font-family: Nunito;
   font-size: 18px;
   font-weight: 700;
@@ -80,8 +80,7 @@
     text-align: center;
   }
 
-   
-  .account_transaction__form{
+  .account_transaction__form {
     flex-direction: column;
     gap: 15px;
   }
@@ -90,8 +89,9 @@
     max-width: 100%;
   }
 
-   .account_button {
+  .account_button {
     display: flex;
     justify-content: center;
     width: 100%;
+  }
 }

@@ -13,9 +13,6 @@ function* tokenAsync(action) {
   // const loading = yield select(state => state.postData.loading);
   if (token) return;
   const config = {
-    // headers: {
-    //   Authorization: `Basic ${token}`,
-    // },
     body: {
       login: loginUser,
       password: passwordUser

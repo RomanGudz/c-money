@@ -24,6 +24,9 @@ const tokenSlice = createSlice({
     tokenRequestError: (state, action) => {
       state.error = action;
       state.loading = false;
+    },
+    updateToken: (state, action) => {
+      state.token = action.payload;
     }
   }
 });
@@ -32,6 +35,7 @@ export const {
   tokenRequest,
   tokenRequestSuccess,
   tokenRequestError,
+  updateToken,
 } = tokenSlice.actions;
 
 export default tokenSlice.reducer;

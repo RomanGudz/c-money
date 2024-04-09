@@ -5,17 +5,38 @@ import style from './CheckUser.module.css';
 import { ReactComponent as BackIcon } from './img/backIcon.svg';
 import TableHistiory from './TableHistory';
 import AccountTransition from './AccountTransition';
+import { useParams } from 'react-router-dom';
+import { useCheckUser } from '../../hooks/useCheckUser';
+import { Line } from 'react-chartjs-2';
+// eslint-disable-next-line no-unused-vars
+import { Chart as ChartJS } from 'chart.js/auto';
 
 // в файле style есть прелоадер может пригодится
 
 export const CheckUser = () => {
-  console.log();
+  const { id } = useParams();
+  const data = useCheckUser(id);
+  console.log('data: ', data);
+
+  const chartData = {
+    labels: ['Янв', 'Фев', 'Мар', 'Апр',
+      'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+    datasets: [
+      {
+        label: 'Баланс счета',
+        data: [1000, 2000, 1000, 4000, 5000, 6000, 5000],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }
+    ]
+  };
   return (
     <Layout>
       <div className={style.account_container}>
         <div className={style.account_container__header}>
           <h2 className={style.account_title}>
-            Счет №24051911200915061003240821
+            Счет {id}
           </h2>
           <a className={classNames(style.account_button, style.button)}
             // element="[object Object]"
@@ -34,10 +55,11 @@ export const CheckUser = () => {
               <option>2020</option>
             </select>
           </div>
+          <Line data={chartData} />
         </div>
         <div className={style.account_history}>
           <h3 className={style.account_history__title}>История переводов</h3>
-          <TableHistiory />
+          <TableHistiory transactions={data.transactions} />
         </div>
         <AccountTransition />
       </div>
