@@ -27,6 +27,10 @@ const tokenSlice = createSlice({
     },
     updateToken: (state, action) => {
       state.token = action.payload;
+    },
+    deleteToken: (state) => {
+      state.token = '';
+      state.error = '';
     }
   }
 });
@@ -36,6 +40,7 @@ export const {
   tokenRequestSuccess,
   tokenRequestError,
   updateToken,
+  deleteToken
 } = tokenSlice.actions;
 
 export default tokenSlice.reducer;

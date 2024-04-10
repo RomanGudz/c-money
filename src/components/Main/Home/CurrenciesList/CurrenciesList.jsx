@@ -1,11 +1,12 @@
 import React from 'react';
 import style from './CurrenciesList.module.css';
-import { useAuth } from '../../../../hooks/useAuth';
 import formatDate from '../../../../utils/formatDate';
 import { Link, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export const CurrenciesList = () => {
-  const [auth, loading] = useAuth();
+  const loading = useSelector(state => state.auth.loading);
+  const auth = useSelector(state => state.auth.data);
   console.log(auth);
   return (<><ul className={style.currencies_list}>
     {loading ? <p>load....</p> :

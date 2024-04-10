@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './Auth.module.css';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { tokenRequest } from '../../store/token/tokenSlice';
 import validateLogin from '../../utils/validate/validateLogin';
 import validatePassword from '../../utils/validate/valodatePassword';
+import { authRequest } from '../../store/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 export const Auth = () => {
   const dispatch = useDispatch();
   const [validPas, setValidPas] = useState(false);
   const [validLogin, setValidLogin] = useState(false);
   const errorValid = useSelector(state => state.token.errorValid);
+  const token = useSelector(state => state.token.token);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     login: '',
     password: ''
   });
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +46,12 @@ export const Auth = () => {
     }
     dispatch(tokenRequest(formData));
   };
+  useEffect(() => {
+    if (token) {
+      dispatch(authRequest(token));
+      navigate('/currencies');
+    }
+  }, [token]);
   return (
     <div className={style.auth__container}>
       <div className={style.auth__wrapper}>

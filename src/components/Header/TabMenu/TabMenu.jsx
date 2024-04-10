@@ -2,14 +2,17 @@ import React from 'react';
 import style from './TabMenu.module.css';
 import { ReactComponent as Exit } from './img/exit.svg';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteToken } from '../../../store/token/tokenSlice';
 
 export const TabMenu = () => {
   const navigate = useNavigate();
   const token = useSelector(state => state.token.token);
+  const dispatch = useDispatch();
   const exit = () => {
-    navigate('/auth');
     localStorage.removeItem('token');
+    dispatch(deleteToken());
+    navigate('/auth');
   };
   return (<ul className={style.header_nav}>
     {token && (<>

@@ -1,16 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import { useDispatch } from 'react-redux';
-import { updateToken } from './store/token/tokenSlice';
+import { useEffect } from 'react';
+import { authRequest } from './store/auth/authSlice';
+import { getToken } from './hooks/token';
 
 // в стиля есть visually-hidden  для скрытия контента
 
 const App = () => {
   const dispatch = useDispatch();
-  dispatch(updateToken());
+  const navigate = useNavigate();
+  const token = getToken();
+  useEffect(() => {
+    if (token) {
+      dispatch(authRequest(token));
+      navigate('/currencies');
+    }
+    if (!token) {
+      navigate('/auth');
+    }
+  }, []);
   console.log();
   return (
     <Routes>
