@@ -4,6 +4,7 @@ import rootSaga from './saga';
 import authSlice from './auth/authSlice';
 import tokenSlice from './token/tokenSlice';
 import checkSlice from './checkUser/checkSlice';
+import createCheckSlice from './createCheck/createCheckSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,7 +13,7 @@ export const store = configureStore({
     token: tokenSlice,
     auth: authSlice,
     check: checkSlice,
-    // comments: commentsReducer,
+    createCheck: createCheckSlice,
     // search: searchReducer,
   },
   middleware: (getDefaultMidleware) =>
