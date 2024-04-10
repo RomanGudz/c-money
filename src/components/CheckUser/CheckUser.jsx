@@ -59,7 +59,7 @@ export const CheckUser = () => {
         </div>
         <div className={style.account_history}>
           <h3 className={style.account_history__title}>История переводов</h3>
-          <TableHistiory transactions={data.transactions} />
+          <TableHistiory transactions={data.transactions} id={id} />
         </div>
         <AccountTransition />
       </div>
