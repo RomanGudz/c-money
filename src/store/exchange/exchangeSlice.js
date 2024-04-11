@@ -4,7 +4,6 @@ const initialState = {
   loading: false,
   allCurrencies: [],
   currencies: {},
-  currencyFeed: {},
   error: null
 };
 
