@@ -6,6 +6,7 @@ import tokenSlice from './token/tokenSlice';
 import checkSlice from './checkUser/checkSlice';
 import createCheckSlice from './createCheck/createCheckSlice';
 import sendTransactionSlice from './sendTransaction/sendTransactionSlice';
+import exchangeSlice from './exchange/exchangeSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,6 +17,7 @@ export const store = configureStore({
     check: checkSlice,
     createCheck: createCheckSlice,
     sendTransaction: sendTransactionSlice,
+    exchange: exchangeSlice,
   },
   middleware: (getDefaultMidleware) =>
     getDefaultMidleware().concat(sagaMiddleware),

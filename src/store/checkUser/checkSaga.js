@@ -8,8 +8,6 @@ import { URL } from '../../API/const';
 
 function* checkAsync(action) {
   const token = yield select(state => state.token.token);
-  // const loading = yield select(state => state.auth.loading);
-  // if (loading) return;
   const config = {
     headers: {
       Authorization: `Basic ${token}`,

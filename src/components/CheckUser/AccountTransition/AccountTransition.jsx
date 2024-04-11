@@ -16,9 +16,11 @@ export const AccountTransition = ({ id }) => {
   const [errors, setErrors] = useState({});
   const error = useSelector(state => state.sendTransaction.error);
   const [errText, setErrText] = useState('');
+
   useEffect(() => {
     setErrText(errorProcessing(error));
   }, [error]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({

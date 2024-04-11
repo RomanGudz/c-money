@@ -5,11 +5,14 @@ import classNames from 'classnames';
 import { ReactComponent as ArrowUp } from './img/arrow-up.svg';
 import { ReactComponent as ArrowDown } from './img/arrow-down.svg';
 import ExchangeRight from './ExchangeRight';
+import { useSelector } from 'react-redux';
 
 // есть лоадер Exchange_loader__containe
 
 export const Exchange = () => {
-  console.log();
+  const total = useSelector(state => state.exchange.currencies);
+  const exchangeCurrency = useSelector(state => state.exchange.currencies);
+  console.log('exchangeCurrency: ', Object.values(exchangeCurrency));
   return (
     <Layout>
       <div className={style.exchange_container}>
@@ -33,7 +36,7 @@ export const Exchange = () => {
         <span className={
           classNames(style.exchange_balance, style.exchange_text_white)}
         >
-          6 795 296.36
+          {total.RUB.amount}
         </span>
         <div className={style.exchange_wrapper}>
           <div className={style.exchange_rates__wrapper}>
@@ -123,7 +126,7 @@ export const Exchange = () => {
                 </span></div>
             </div>
           </div>
-          <ExchangeRight />
+          <ExchangeRight currencies={Object.values(exchangeCurrency)} />
         </div>
       </div>
     </Layout>

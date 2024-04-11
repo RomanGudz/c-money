@@ -5,6 +5,8 @@ import { watchCheckAsync } from './checkUser/checkSaga';
 import { watchCreateCheckAsync } from './createCheck/createCheckSaga';
 import { watchSendTransactionAsync }
   from './sendTransaction/sendTransactionSaga';
+import { watchExchangeAsync } from './exchange/exchangeSaga';
+import { watchExchangeBuyAsync } from './exchange/exchangeBuySaga';
 
 export default function* rootSaga() {
   yield all([
@@ -13,5 +15,7 @@ export default function* rootSaga() {
     watchCheckAsync(),
     watchCreateCheckAsync(),
     watchSendTransactionAsync(),
+    watchExchangeAsync(),
+    watchExchangeBuyAsync(),
   ]);
 }

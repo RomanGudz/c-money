@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authRequest } from './store/auth/authSlice';
 import { getToken } from './hooks/token';
+import { exchangeRequest } from './store/exchange/exchangeSlice';
 
 // в стиля есть visually-hidden  для скрытия контента
 
@@ -17,6 +18,7 @@ const App = () => {
   useEffect(() => {
     if (token) {
       dispatch(authRequest(token));
+      dispatch(exchangeRequest());
       navigate('/currencies');
     }
     if (!token) {
