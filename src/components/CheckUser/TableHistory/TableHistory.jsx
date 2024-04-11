@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 // import sortYear from '../../../utils/sortYear';
 
 export const TableHistory = ({ transactions, id }) => {
-  console.log('transactions: ', transactions);
   const [th] = useState(['Счет', 'Сумма', 'Дата']);
   return (<div className={style.table__container}>
     <table className={style.table}>

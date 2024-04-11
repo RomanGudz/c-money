@@ -1,19 +1,11 @@
-const sortYear = (date) => {
-  console.log('date: ', date);
-  const year = date.sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
+/* eslint-disable indent */
+const sortByYear = (date, y) => {
+  const sortTransactions = date.filter(item =>
+    new Date(item.date).getFullYear() ===
+    new Date(y, 1, 0).getFullYear()
+  );
 
-    // Получаем годы из дат
-    const yearA = dateA.getFullYear();
-    const yearB = dateB.getFullYear();
-    console.log(yearA - yearB);
-    return yearA - yearB;
-  });
-
-  console.log(year);
-
-  return year;
+  return sortTransactions;
 };
 
-export default sortYear;
+export default sortByYear;

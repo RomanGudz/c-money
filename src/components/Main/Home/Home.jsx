@@ -27,7 +27,6 @@ export const Home = () => {
   };
 
   const handleSortChange = (event) => {
-    console.log('event: ', event.target.value);
     setSortBy(event.target.value);
   };
 
