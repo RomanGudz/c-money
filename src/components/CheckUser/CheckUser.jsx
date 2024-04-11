@@ -79,14 +79,14 @@ export const CheckUser = () => {
           <h2 className={style.account_title}>
             Счет {id}
           </h2>
-          <a className={classNames(style.account_button, style.button)}
+          <button className={classNames(style.account_button, style.button)}
             // element="[object Object]"
             onClick={() => {
               dispatch(authRequest(token));
               navigate('/currencies');
             }}>
             <BackIcon />
-            Вернуться</a>
+            Вернуться</button>
         </div>
         <div className={style.account_dynamic}>
           <div className={style.account_dynamic__header}>

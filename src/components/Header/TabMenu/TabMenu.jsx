@@ -4,6 +4,7 @@ import { ReactComponent as Exit } from './img/exit.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteToken } from '../../../store/token/tokenSlice';
+import classNames from 'classnames';
 
 export const TabMenu = () => {
   const navigate = useNavigate();
@@ -17,23 +18,25 @@ export const TabMenu = () => {
   };
   return (<ul className={style.header_nav}>
     {token && (<>
-      <a
+      <button
         aria-current="page"
-        className={params['*'] === 'currencies' ? style.active : ''}
+        className={classNames((params['*'] ===
+          'currencies' ? style.active : style.header_exit))}
         onClick={() => {
           navigate('/currencies');
         }}>
         Счета
-      </a>
-      <a
+      </button>
+      <button
         aria-current="page"
-        className={params['*'] === 'exchange' ? style.active : ''}
+        className={classNames((params['*'] ===
+          'exchange' ? style.active : style.header_exit))}
         onClick={() => {
           navigate('/exchange');
         }}
       >
         Обмен
-      </a>
+      </button>
       <button
         className={style.header_exit}
         onClick={exit}
