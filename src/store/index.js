@@ -5,6 +5,7 @@ import authSlice from './auth/authSlice';
 import tokenSlice from './token/tokenSlice';
 import checkSlice from './checkUser/checkSlice';
 import createCheckSlice from './createCheck/createCheckSlice';
+import sendTransactionSlice from './sendTransaction/sendTransactionSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -14,7 +15,7 @@ export const store = configureStore({
     auth: authSlice,
     check: checkSlice,
     createCheck: createCheckSlice,
-    // search: searchReducer,
+    sendTransaction: sendTransactionSlice,
   },
   middleware: (getDefaultMidleware) =>
     getDefaultMidleware().concat(sagaMiddleware),

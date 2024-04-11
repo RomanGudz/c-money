@@ -5,7 +5,7 @@ import style from './CheckUser.module.css';
 import { ReactComponent as BackIcon } from './img/backIcon.svg';
 import TableHistiory from './TableHistory';
 import AccountTransition from './AccountTransition';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 // eslint-disable-next-line no-unused-vars
 import { Chart as ChartJS } from 'chart.js/auto';
@@ -20,6 +20,7 @@ import balanceCheck from '../../utils/balanceCheck';
 export const CheckUser = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isload, setIsLload] = useState(false);
   const [years, setYears] = useState([]);
   const [transactions, setTransactions] = useState([]);
@@ -77,7 +78,9 @@ export const CheckUser = () => {
           </h2>
           <a className={classNames(style.account_button, style.button)}
             // element="[object Object]"
-            href="/currencies">
+            onClick={() => {
+              navigate('/currencies');
+            }}>
             <BackIcon />
             Вернуться</a>
         </div>
@@ -99,7 +102,7 @@ export const CheckUser = () => {
           <h3 className={style.account_history__title}>История переводов</h3>
           <TableHistiory transactions={transactions.slice(-9)} id={id} />
         </div>
-        <AccountTransition />
+        <AccountTransition id={id} />
       </div>
     </Layout>
   );
