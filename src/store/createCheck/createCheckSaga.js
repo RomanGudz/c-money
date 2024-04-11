@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest, call, select } from '@redux-saga/core/effects';
+import { put, takeLatest, select } from '@redux-saga/core/effects';
 import {
   createCheckRequestSucces,
   createCheckRequestError,
@@ -16,7 +16,7 @@ function* createCheckAsync() {
   };
 
   try {
-    const response = yield call(axios.post, `${URL}create-account`, config);
+    const response = yield axios.post(`${URL}create-account`, {}, config);
 
     const { payload } = response.data;
 

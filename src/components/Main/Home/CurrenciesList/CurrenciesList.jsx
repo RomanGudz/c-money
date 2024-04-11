@@ -12,7 +12,6 @@ export const CurrenciesList = ({ currencies, loading }) => {
       currencies.map(currenc =>
         <li className={style.card_card} key={currenc.account}>
           <Link
-            // element="[object Object]"
             to={`/account/${currenc.account}`}>
             <p className={style.card_id}>{currenc.account}</p>
             <p className={style.card_balance}>{currenc.balance}</p>
@@ -21,11 +20,12 @@ export const CurrenciesList = ({ currencies, loading }) => {
                 <p>открыт</p>
                 <p>{formatDate(currenc.date)}</p>
               </div>
-              <div>
-                <p>последняя операция</p>
-                <time dateTime="2022-07-16T10:36:01.474Z">
-                  {formatDate(currenc.transactions[0].date)}</time>
-              </div>
+              {currenc.transactions.length > 0 ?
+                (<div>
+                  <p>последняя операция</p>
+                  <time dateTime="2022-07-16T10:36:01.474Z">
+                    {formatDate(currenc.transactions[0].date)}</time>
+                </div>) : (<p>Нет операций</p>)}
             </div>
           </Link></li>)}
   </ul><Outlet />
