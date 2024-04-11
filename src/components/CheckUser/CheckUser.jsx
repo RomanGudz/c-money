@@ -14,6 +14,7 @@ import { checkRequest } from '../../store/checkUser/checkSlice';
 import sortYear from '../../utils/sortYear';
 import transactionsYears from '../../utils/transactionsYears';
 import balanceCheck from '../../utils/balanceCheck';
+import { authRequest } from '../../store/auth/authSlice';
 
 // в файле style есть прелоадер может пригодится
 
@@ -21,13 +22,15 @@ export const CheckUser = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const token = useSelector(state => state.token.token);
+  const data = useSelector(state => state.check.data);
   const [isload, setIsLload] = useState(false);
   const [years, setYears] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [year, setYear] = useState('');
   const [months, setMonths] = useState([]);
   const [balanceMoth, setBalanceMoth] = useState([]);
-  const data = useSelector(state => state.check.data);
+
 
   useEffect(() => {
     dispatch(checkRequest(id));
@@ -79,6 +82,7 @@ export const CheckUser = () => {
           <a className={classNames(style.account_button, style.button)}
             // element="[object Object]"
             onClick={() => {
+              dispatch(authRequest(token));
               navigate('/currencies');
             }}>
             <BackIcon />

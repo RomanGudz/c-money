@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   loading: false,
   data: [],
-  error: ''
+  error: null
 };
 
 const sendTransaction = createSlice({
@@ -21,6 +21,9 @@ const sendTransaction = createSlice({
     sendTransactionRequestError: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    sendTransactionErrorForm: (state, action) => {
+      state.error = action.payload;
     }
   }
 });
@@ -29,6 +32,7 @@ export const {
   sendTransactionRequest,
   sendTransactionRequestSucces,
   sendTransactionRequestError,
+  sendTransactionErrorForm,
 } = sendTransaction.actions;
 
 export default sendTransaction.reducer;

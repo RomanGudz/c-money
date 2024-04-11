@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './AccountTransition.module.css';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { sendTransactionRequest }
   from '../../../store/sendTransaction/sendTransactionSlice';
+import errorProcessing from '../../../utils/errorProcessing';
 
 export const AccountTransition = ({ id }) => {
   const dispatch = useDispatch();
@@ -13,7 +14,11 @@ export const AccountTransition = ({ id }) => {
     amount: ''
   });
   const [errors, setErrors] = useState({});
-
+  const error = useSelector(state => state.sendTransaction.error);
+  const [errText, setErrText] = useState('');
+  useEffect(() => {
+    setErrText(errorProcessing(error));
+  }, [error]);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -42,7 +47,6 @@ export const AccountTransition = ({ id }) => {
     e.preventDefault();
     if (validateForm()) {
       dispatch(sendTransactionRequest({ formData, id }));
-      console.log('Данные формы отправлены:', formData);
     }
   };
   return (<div className={style.account_transaction}>
@@ -84,6 +88,7 @@ export const AccountTransition = ({ id }) => {
         Перевести
       </button>
     </form>
+    {errText ? (<p className={style.form__error}>{errText}</p>) : ''}
   </div>);
 };
 

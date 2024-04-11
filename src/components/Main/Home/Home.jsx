@@ -7,6 +7,7 @@ import CurrenciesList from './CurrenciesList';
 import { useDispatch, useSelector } from 'react-redux';
 import { createCheckRequest }
   from '../../../store/createCheck/createCheckSlice';
+import { authRequest } from '../../../store/auth/authSlice';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -17,13 +18,14 @@ export const Home = () => {
     { id: 'date', text: 'Дата открытия' },
     { id: 'last', text: 'Дата последней трансзакции' }
   ];
-
+  const token = useSelector(state => state.token.token);
   const loading = useSelector(state => state.auth.loading);
   const auth = useSelector(state => state.auth.data);
 
 
   const addCheck = () => {
     dispatch(createCheckRequest());
+    dispatch(authRequest(token));
   };
 
   const handleSortChange = (event) => {
@@ -36,13 +38,12 @@ export const Home = () => {
       if (sortBy === 'Номер счёта') {
         return a.account.localeCompare(b.account);
       } else if (sortBy === 'Баланс') {
-        console.log(a.balance - b.balance);
         return a.balance - b.balance;
       } else if (sortBy === 'Дата открытия') {
         return new Date(a.openDate) - new Date(b.openDate);
       } else if (sortBy === 'Дата последней трансзакции') {
-        return new Date(b.transactions[0].date) -
-          new Date(a.transactions[0].date);
+        return new Date(b.transactions[0]?.date) -
+          new Date(a.transactions[0]?.date);
       }
     });
   };

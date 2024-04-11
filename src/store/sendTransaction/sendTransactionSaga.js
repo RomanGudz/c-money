@@ -3,6 +3,7 @@ import { put, takeLatest, select } from '@redux-saga/core/effects';
 import {
   sendTransactionRequestSucces,
   sendTransactionRequestError,
+  sendTransactionErrorForm,
 } from './sendTransactionSlice';
 import { URL } from '../../API/const';
 
@@ -26,9 +27,9 @@ function* sendTransactionAsync(action) {
         }
       });
 
-    const { payload } = response.data;
+    const { payload, error } = response.data;
     console.log('payload: ', payload);
-
+    yield put(sendTransactionErrorForm(error));
     yield put(sendTransactionRequestSucces(payload));
   } catch (err) {
     yield put(sendTransactionRequestError(err.message));
