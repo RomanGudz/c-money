@@ -69,7 +69,7 @@ export const Exchange = () => {
         <span className={
           classNames(style.exchange_balance, style.exchange_text_white)}
         >
-          {total.RUB.amount}
+          {total.RUB?.amount}
         </span>
         <div className={style.exchange_wrapper}>
           <div className={style.exchange_rates__wrapper}>

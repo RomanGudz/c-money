@@ -2,13 +2,14 @@ import React from 'react';
 import style from './CurrenciesList.module.css';
 import formatDate from '../../../../utils/formatDate';
 import { Link, Outlet } from 'react-router-dom';
+import { BounceLoader } from 'react-spinners';
 
 import PropTypes from 'prop-types';
 
 export const CurrenciesList = ({ currencies, loading }) => {
   console.log();
   return (<><ul className={style.currencies_list}>
-    {loading ? <p>load....</p> :
+    {loading ? (<BounceLoader color="#9C19CA" />) :
       currencies.map(currenc =>
         <li className={style.card_card} key={currenc.account}>
           <Link

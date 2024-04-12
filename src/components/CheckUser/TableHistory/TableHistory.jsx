@@ -3,7 +3,6 @@ import style from './TableHistory.module.css';
 import classNames from 'classnames';
 import formatDate from '../../../utils/formatDate';
 import PropTypes from 'prop-types';
-// import sortYear from '../../../utils/sortYear';
 
 export const TableHistory = ({ transactions, id }) => {
   const [th] = useState(['Счет', 'Сумма', 'Дата']);

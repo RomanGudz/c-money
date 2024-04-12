@@ -80,7 +80,6 @@ export const CheckUser = () => {
             Счет {id}
           </h2>
           <button className={classNames(style.account_button, style.button)}
-            // element="[object Object]"
             onClick={() => {
               dispatch(authRequest(token));
               navigate('/currencies');
