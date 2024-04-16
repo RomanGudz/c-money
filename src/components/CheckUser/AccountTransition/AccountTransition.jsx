@@ -52,10 +52,12 @@ export const AccountTransition = ({ id }) => {
     }
   };
   return (<div className={style.account_transaction}>
-    <h3
+    {error === null ? <h3
       className={classNames(style.account_transaction__title,
         style.account_title)}>
-      Перевод</h3>
+      Перевод</h3> :
+      (<h3 className={classNames(style.account_transaction__title,
+        style.account_title)}>Перевод успешно отправлен</h3>)}
     <form
       className={style.account_transaction__form}
       onSubmit={sendTransaction}

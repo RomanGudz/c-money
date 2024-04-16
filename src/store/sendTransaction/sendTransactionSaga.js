@@ -28,7 +28,7 @@ function* sendTransactionAsync(action) {
       });
 
     const { payload, error } = response.data;
-    console.log('payload: ', payload);
+    console.log('payload: ', response);
     yield put(sendTransactionErrorForm(error));
     yield put(sendTransactionRequestSucces(payload));
   } catch (err) {

@@ -8,12 +8,14 @@ export const setToken = (token) => {
 export const getToken = () => {
   const token = useSelector(state => state.token.token);
   const dispatch = useDispatch();
-  if (token) {
-    setToken(token);
-    return token;
-  }
-  if (localStorage.getItem('token')) {
-    dispatch(updateToken(localStorage.getItem('token')));
-    return localStorage.getItem('token');
+  if (!token === undefined) {
+    if (token) {
+      setToken(token);
+      return token;
+    }
+    if (localStorage.getItem('token')) {
+      dispatch(updateToken(localStorage.getItem('token')));
+      return localStorage.getItem('token');
+    }
   }
 };
