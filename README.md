@@ -9,9 +9,12 @@
 `npm install`
 `cd ./c-money`
 
+бэкэнд часть приложения https://github.com/maksim-leskin/c-money-api
+установить запустить согласно инструкции
+
 ### Запуск
 
-`npm run start`
+`npm run start` (без зупещенной бэкэнд часть приложение не работает)
 приложение доступно на (http://localhost:3000)
 
 ### Сборка текущего билда
