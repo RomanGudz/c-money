@@ -9,7 +9,7 @@
 `npm install`
 `cd ./c-money`
 
-бэкэнд часть приложения https://github.com/maksim-leskin/c-money-api](https://github.com/RomanGudz/c-money-api
+бэкэнд часть приложения https://github.com/RomanGudz/c-money-api
 установить запустить согласно инструкции
 
 ### Запуск
